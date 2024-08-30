@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Administrador</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .button-container a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            text-align: center;
+            display: block;
+            font-weight: bold;
+        }
+
+        .button-container a:hover {
+            background-color: #0056b3;
+        }
+
+        .button-container a.delete {
+            background-color: #dc3545;
+        }
+
+        .button-container a.delete:hover {
+            background-color: #c82333;
+        }
+
+        .logout-button {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #28a745;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .logout-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Painel do Administrador</h1>
+        <div class="button-container">
+            <a href="{{ url_for('criar_curso') }}">Adicionar Curso</a>
+            <a href="{{ url_for('criar_turma') }}">Adicionar Turma</a>
+            <a href="{{ url_for('listar_alunos') }}">Gerenciar Alunos</a>
+            <a href="{{ url_for('listar_turmas') }}">Deletar Turma</a>
+        </div>
+        <a href="{{ url_for('logout') }}" class="logout-button">Sair</a>
+    </div>
+</body>
+</html>

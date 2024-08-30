@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        h3 {
+            color: #555;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #e4e4e4;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .logout-button {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #28a745;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .logout-button:hover {
+            background-color: #218838;
+        }
+        .inscrever-button {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .inscrever-button:hover {
+            background-color: #0056b3;
+        }
+        .btn {
+    padding: 2px 5px; /* Reduz o padding para diminuir o tamanho do botão */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block; /* Mantém o botão ao lado da informação */
+    margin-left: 200px; /* Ajusta a distância entre o botão e a informação */
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.actions {
+    display: inline-block; /* Mantém a disposição em linha */
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block; /* Permite que o link se comporte como um elemento em linha, respeitando as margens */
+    text-align: center;
+    margin-top: 5px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo, {{ aluno.nome }}</h1>
+        <h3>Você está matriculado nas seguintes turmas:</h3>
+        <ul>
+            {% for turma in aluno.turmas %}
+                <li>
+                    {{ turma.nome_turma }} - {{ nome_curso }}
+                    <div class="actions">
+                        <a href="{{ url_for('sair_turma', id=turma.id) }}" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja sair desta turma?');">Sair da Turma</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('inscrever') }}" class="inscrever-button">Matricular-se em uma turma</a>
+        <a href="{{ url_for('logout') }}" class="logout-button">Sair</a>
+    </div>
+</body>
+</html>

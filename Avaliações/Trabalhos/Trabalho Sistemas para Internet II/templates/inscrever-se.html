@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matricular-se em uma Turma</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .flash-message {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #fff;
+    text-align: center;
+    position: relative; /* Para posicionamento mais avançado, se necessário */
+}
+
+    .flash-message.error {
+        background-color: #dc3545; /* Cor de fundo para mensagens de erro */
+        border: 1px solid #c82333; /* Cor da borda para mensagens de erro */
+    }
+    
+    .flash-message.success {
+        background-color: #28a745; /* Cor de fundo para mensagens de sucesso */
+        border: 1px solid #1e7e34; /* Cor da borda para mensagens de sucesso */
+    }
+
+    .flash-message.info {
+        background-color: #17a2b8; /* Cor de fundo para mensagens informativas */
+        border: 1px solid #117a8b; /* Cor da borda para mensagens informativas */
+    }
+
+    /* Ajuste a posição se necessário */
+    .flash-message.fixed {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        width: auto;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Matricular-se em uma Turma</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action="{{ url_for('inscrever') }}" method="POST">
+            <label for="turma_id">Selecione a Turma:</label>
+            <select name="turma_id" id="turma_id" required>
+                {% for turma in turmas %}
+                    <option value="{{ turma.id }}">{{ turma.nome_turma }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Inscrever-se</button>
+        </form>
+        <a href="{{ url_for('pagina_inicial') }}">Voltar à Página Inicial</a>
+    </div>
+</body>
+</html>
