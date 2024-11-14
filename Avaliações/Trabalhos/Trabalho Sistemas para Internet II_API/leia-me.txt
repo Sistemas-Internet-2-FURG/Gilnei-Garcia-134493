@@ -1,0 +1,2 @@
+Utilizar o python versão 3.10 ou superior para rodar o código.  
+Link do vídeo explicativo: https://youtu.be/S1mC075JKsI
