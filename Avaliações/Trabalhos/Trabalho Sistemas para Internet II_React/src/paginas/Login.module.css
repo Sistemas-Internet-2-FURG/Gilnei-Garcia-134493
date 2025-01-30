@@ -1,0 +1,75 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.loginContainer {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+}
+
+.loginContainer h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.loginContainer label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  text-align: left; 
+}
+
+.loginContainer input[type="text"],
+.loginContainer input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.loginContainer button {
+  width: 100%;
+  font-size: 16px;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.loginContainer button:hover {
+  background-color: #0056b3;
+}
+
+.loginContainer p {
+  margin-top: 10px;
+}
+
+.loginContainer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.loginContainer a:hover {
+  text-decoration: underline;
+}
+
+.mensagem {
+  color: red;
+  text-align: center;
+  margin-bottom: 10px;
+}
